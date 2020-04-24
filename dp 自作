@@ -1,0 +1,5 @@
+// intの前に 
+ll dp[nan][mam]
+
+rep(i,n+1)rep(j,n+1) dp[i][j]= INF ;
+dp[0][0]=0
