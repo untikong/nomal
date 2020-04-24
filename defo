@@ -5,6 +5,9 @@
 using namespace std;
 using ll = long long;
 using P = pair<int,int>;
+const ll INF=1e18 ;
+inline void chmax(ll& a,ll b){a=max(a,b);}
+inline void chmin(ll& a,ll b){b=min(a,b);}
 
 int main() {
 
