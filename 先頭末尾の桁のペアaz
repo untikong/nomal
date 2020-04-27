@@ -1,0 +1,9 @@
+P az(int x){
+  int a=x%10 ;
+  int b=0;
+  while(x>=1){
+    b=x ;
+    x /= 10 ;
+  }
+  return P(a,b) ;
+}
