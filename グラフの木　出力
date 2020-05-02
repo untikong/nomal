@@ -1,0 +1,8 @@
+rep(i,k){
+int a,b;
+cin >>a>>b ;
+--a ;--b ;
+deg[a]++ ;
+deg[b]++ ;
+uf.unit(a,b) ;
+}    //deg[a]直接連結の数　uf.size(i)
