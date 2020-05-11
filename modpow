@@ -1,0 +1,8 @@
+ll modpow(ll N, ll P, ll M){
+    ll ans = 1;
+    for(ll i=0; i<P; ++i){
+        ans *= N;
+        ans %= M;
+    }
+    return ans;
+}
