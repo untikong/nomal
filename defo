@@ -4,6 +4,7 @@
 #include <algorithm>
 #define rep(i,n) for (long long i=0; i < (n); ++i)
 #define rep2(i,n,m) for(long long i=n;i<=m;i++)
+#define rep3(i,n,m) for(long long i=n;i>=m;i--)
 #define ALL(a)  (a).begin(),(a).end()
 using namespace std;
 using ll = long long;
