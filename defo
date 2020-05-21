@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 #include <cstdlib>
-#include <cmath> 
+#include <cmath>
 #include <algorithm>
-#define rep(i,n) for (long long i=0; i < (n); ++i)
-#define rep2(i,n,m) for(long long i=n;i<=m;i++)
-#define rep3(i,n,m) for(long long i=n;i>=m;i--)
-#define ALL(a)  (a).begin(),(a).end()
 using namespace std;
 using ll = long long;
 using P = pair<int,int>;
+using Graph= vector<vector<int>>; 
+#define rep(i,n) for (ll i=0; i < (n); ++i)
+#define rep2(i,n,m) for(ll i=n;i<=m;i++)
+#define rep3(i,n,m) for(ll i=n;i>=m;i--)
+#define pb push_back
+#define eb emplace_back
+#define ppb pop_back
 const ll INF=1e18 ;
 inline void chmax(ll& a,ll b){a=max(a,b);}
 inline void chmin(ll& a,ll b){a=min(a,b);}
-
-int main() {
-
-  cout <<ans<<endl ; 
+int main(){
+  
     return 0;
-
-}
+  }
