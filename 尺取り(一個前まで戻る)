@@ -1,0 +1,19 @@
+//k以上のものの個数
+ll ans=0 ;
+ ll sum=0 ;
+ ll r=0 ;
+ rep(i,n){
+   rep(j,n){ 
+     sum+=A[r] ;
+     if(sum>=k){
+       ans+=n-r ;
+       sum-=A[i]+A[r] ;//一個前まで戻る
+       break ;
+     }
+    if(r==n-1) {
+      sum-=A[i]+A[r] ;
+      break ;
+    }
+    r++ ;
+    }
+ }
