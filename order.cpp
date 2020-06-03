@@ -9,3 +9,4 @@
             ord[i]=res;
         }
     }
+if(n!=1) mp[n]++;
