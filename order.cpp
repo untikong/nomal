@@ -10,6 +10,6 @@
             ord[i]=res;
         }
     }
-if(n!=1) ord[n]++;
- return ord ;
+   if(n!=1) ord[n]++;
+   return ord ;
  }
