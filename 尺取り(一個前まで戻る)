@@ -8,7 +8,7 @@ ll ans=0 ;
      if(sum>=k){
        ans+=n-r ;
         if(i!=r)sum-=A[i]+A[r] ;//一個前まで戻る
-       else{
+       else{        //足し算の時はマイナスから次のプラスで戻るので場合分け不要　掛け算で破綻
        sum-=A[i];
        r++;
        }break ;
