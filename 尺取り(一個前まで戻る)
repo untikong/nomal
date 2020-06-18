@@ -7,8 +7,11 @@ ll ans=0 ;
      sum+=A[r] ;
      if(sum>=k){
        ans+=n-r ;
-       sum-=A[i]+A[r] ;//一個前まで戻る
-       break ;
+        if(i!=r)sum-=A[i]+A[r] ;//一個前まで戻る
+       else{
+       sum-=A[i];
+       r++;
+       }break ;
      }
     if(r==n-1) {
       sum-=A[i]+A[r] ;
