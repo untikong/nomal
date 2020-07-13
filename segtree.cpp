@@ -1,6 +1,6 @@
-
 /* RMQ：[0,n-1] について、区間ごとの最小値を管理する構造体
     set(int i, T x), build(): i番目の要素をxにセット。まとめてセグ木を構築する。O(n)
+    updata(a,b,x) : [a,b)の要素をXに更新。O(log(n))
     update(i,x): i 番目の要素を x に更新。O(log(n))
     query(a,b): [a,b) での最小の要素を取得。O(log(n))
     find_rightest(a,b,x): [a,b) で x以下の要素を持つ最右位置を求める。O(log(n))
@@ -19,13 +19,11 @@ struct RMQ {
         }
         n = x;
     }
- 
     void set(int i, T x) { dat[i + n - 1] = x; }
     void build() {
         for (int k = n - 2; k >= 0; k--) dat[k] = fx(dat[2 * k + 1], dat[2 * k + 2]);
     }
- 
-   void update(int a, int b, T x, int k, int l, int r) {
+    void update(int a, int b, T x, int k, int l, int r) {
         eval(k);
         if (a <= l && r <= b) {  // 完全に内側の時
             lazy[k] = x;
@@ -37,7 +35,7 @@ struct RMQ {
         }
     }
     void update(int a, int b, T x) { update(a, b, x, 0, 0, n); }
- 
+    void update(int a, T x) { update(a,a+1,x) ;}
     // the minimum element of [a,b)
     T query(int a, int b) { return query_sub(a, b, 0, 0, n); }
     T query_sub(int a, int b, int k, int l, int r) {
@@ -51,7 +49,6 @@ struct RMQ {
             return fx(vl, vr);
         }
     }
- 
     int find_rightest(int a, int b, T x) { return find_rightest_sub(a, b, x, 0, 0, n); }
     int find_leftest(int a, int b, T x) { return find_leftest_sub(a, b, x, 0, 0, n); }
     int find_rightest_sub(int a, int b, T x, int k, int l, int r) {
