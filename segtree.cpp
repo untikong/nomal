@@ -25,14 +25,18 @@ struct RMQ {
         for (int k = n - 2; k >= 0; k--) dat[k] = fx(dat[2 * k + 1], dat[2 * k + 2]);
     }
  
-    void update(int i, T x) {
-        i += n - 1;
-        dat[i] = x;
-        while (i > 0) {
-            i = (i - 1) / 2;  // parent
-            dat[i] = fx(dat[i * 2 + 1], dat[i * 2 + 2]);
+   void update(int a, int b, T x, int k, int l, int r) {
+        eval(k);
+        if (a <= l && r <= b) {  // 完全に内側の時
+            lazy[k] = x;
+            eval(k);
+        } else if (a < r && l < b) {                     // 一部区間が被る時
+            update(a, b, x, k * 2 + 1, l, (l + r) / 2);  // 左の子
+            update(a, b, x, k * 2 + 2, (l + r) / 2, r);  // 右の子
+            dat[k] = min(dat[k * 2 + 1], dat[k * 2 + 2]);
         }
     }
+    void update(int a, int b, T x) { update(a, b, x, 0, 0, n); }
  
     // the minimum element of [a,b)
     T query(int a, int b) { return query_sub(a, b, 0, 0, n); }
