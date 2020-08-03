@@ -17,5 +17,5 @@ struct BIT {
     }
     return x;
   }
-  T sum(int i,int j) { return sum(j)-sum(min(i-1,0)) ;}
+  T sum(int i,int j) { return sum(j)-sum(max(i-1,0)) ;}
 };
