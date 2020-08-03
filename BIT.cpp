@@ -1,4 +1,4 @@
-// sum(x) x以下の和
+ // sum(x) x以下の和
 // sum(a,b) a以上b以下の和
 template<typename T>
 struct BIT {
@@ -17,5 +17,7 @@ struct BIT {
     }
     return x;
   }
-  T sum(int i,int j) { return sum(j)-sum(max(i-1,0)) ;}
+  T sum(int i,int j) {
+    if(i>0) return sum(j)-sum(i-1);
+    else return sum(j) ; } 
 };
