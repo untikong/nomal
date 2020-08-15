@@ -16,7 +16,7 @@ void dijkstra(const graph &g, int s, vector<long long> &dis) {
         if (dis[v] < p.first) {  // 最短距離で無ければ無視
             continue;
         }
-        for (auto &e : G[v]) {
+        for (auto &e : g[v]) {
             if (dis[e.to] > dis[v] + e.cost) {  // 最短距離候補なら priority_queue に追加
                 dis[e.to] = dis[v] + e.cost;
                 pq.emplace(dis[e.to], e.to);
