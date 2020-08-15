@@ -3,6 +3,7 @@
     計算量：O(|E|log|V|)
     副作用：dis が書き換えられる
 */
+// disは自分で用意　単にdでd(n)のようにしない
 void dijkstra(const graph &g, int s, vector<long long> &dis) {
     int N = g.size();
     dis.resize(N, INF);
