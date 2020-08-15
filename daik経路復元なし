@@ -3,8 +3,8 @@
     計算量：O(|E|log|V|)
     副作用：dis が書き換えられる
 */
-void dijkstra(const Graph &G, int s, vector<long long> &dis) {
-    int N = G.size();
+void dijkstra(const graph &g, int s, vector<long long> &dis) {
+    int N = g.size();
     dis.resize(N, INF);
     priority_queue<P, vector<P>, greater<P>> pq;  // 「仮の最短距離, 頂点」が小さい順に並ぶ
     dis[s] = 0;
