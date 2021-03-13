@@ -1,25 +1,54 @@
-const int maxV = 111111;
-vector<int> G[maxV]; // 頂点情報のみのグラフ
-
-// treeDFS(親, 現在地, 根から現在地までの距離, 根からの最大の距離, 根から最大の距離となる頂点
-void treeDFS(int from, int current, int dist, int &maxDist, int &maxVertex) {
-    // 距離と終点を更新
-    if (dist > maxDist) {
-        maxDist = dist;
-        maxVertex = current;
+vector<ll> d(n) ;
+  queue<ll> q ;
+  vector<bool> seen(n) ;
+  q.push(0) ;
+  
+  while(!q.empty()){
+    ll x= q.front() ;
+    seen[x]=1 ;
+    q.pop() ;
+    for(auto u : g[x]){
+      if(seen[u]) continue ;
+      d[u]=d[x]+1 ;
+      q.push(u) ;
     }
-
-    for (auto to : G[current]) {
-        // 逆流を防ぐ
-        if (to == from) continue;
-        treeDFS(current, to, dist + 1, maxDist, maxVertex);
+  }
+  
+  ll memo=-1 ;
+  ll dist=-INF ;
+  rep(i,n){
+    if(d[i]>dist){
+      memo=i ;
+      dist=d[i] ;
     }
-}
+  }
+   
+  d.assign(n,0) ; 
+  seen.assign(n,false) ;
+  
+  
 
-void getTreeDiameter() {
-    int start = 0, end = 0, maxDist = 0;
-    treeDFS(-1, start, 0, maxDist, end);
-    start = end, end = 0, maxDist = 0;
-    treeDFS(-1, start, 0, maxDist, end);
-    printf("start: %d, end: %d, diameter: %d\n", start, end, maxDist);
-}
+  q.push(memo) ;
+  while(!q.empty()){
+    ll x= q.front() ;
+    seen[x]=1 ;
+    q.pop() ;
+    for(auto u : g[x]){
+      if(seen[u]) continue ;
+      d[u]=d[x]+1 ;
+      q.push(u) ;
+    }
+  }
+  ll memo2= memo ;
+
+  memo=-1 ;
+  dist=-INF ;
+  rep(i,n){
+    if(d[i]>dist){
+      memo=i ;
+      dist=d[i] ;
+    }
+  }
+  
+  
+  //memo2とmemoが端点 memo2の距離はdに格納 distが直径
