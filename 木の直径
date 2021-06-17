@@ -27,7 +27,6 @@ vector<ll> d(n) ;
   seen.assign(n,false) ;
   
   
-
   q.push(memo) ;
   while(!q.empty()){
     ll x= q.front() ;
@@ -49,6 +48,5 @@ vector<ll> d(n) ;
       dist=d[i] ;
     }
   }
-  
   
   //memo2とmemoが端点 memo2の距離はdに格納 distが直径
