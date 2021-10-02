@@ -49,4 +49,18 @@ vector<ll> d(n) ;
     }
   }
   
-  //memo2とmemoが端点 memo2の距離はdに格納 distが直径
+  vector<ll> e(n) ;
+  seen.assign(n,false) ;
+  q.push(memo) ;
+  while(!q.empty()){
+    ll x= q.front() ;
+    seen[x]=1 ;
+    q.pop() ;
+    for(auto u : g[x]){
+      if(seen[u]) continue ;
+      e[u]=e[x]+1 ;
+      q.push(u) ;
+    }
+  }
+  
+  //memo2とmemoが端点 memo2の距離はdに格納 distが直径 memoの距離はeに格納
