@@ -1,0 +1,28 @@
+// vector<ll> A,BについてA[i]^B[j]の最小値を返す。
+// xbit目を見ている。A.size=B.size=n,max(A[i],B[i])=Mとしてo(nlogM)
+//ARC122D
+
+ll efs(ll x,vector<ll> A,vector<ll> B){
+  ll p=A.size(); ll q=B.size(); 
+  if(p*q==0) return INF; //空集合でないと保証されない場合
+  if(x==-1) return 0;
+  ll now=(1<<x); 
+  vector<ll> A0,A1,B0,B1;
+
+  rep(i,p){
+    if(A[i]<now) A0.pb(A[i]);
+    else A1.pb(A[i]-now);
+  }
+  rep(i,q){
+    if(B[i]<now) B0.pb(B[i]);
+    else B1.pb(B[i]-now);
+  }
+
+  if(A0.size()*B0.size()>0||A1.size()*B1.size()>0){
+    return min(efs(x-1,A0,B0),efs(x-1,A1,B1));
+  }
+  else{
+    return min(efs(x-1,A0,B1),efs(x-1,A1,B0))+now ;
+  }
+  
+}
