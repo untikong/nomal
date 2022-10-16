@@ -1,0 +1,9 @@
+vector<ll> alldiv(ll n){
+    vector<ll> ans;
+    for(ll i=1;i*i<=n;++i){
+      if(i%n==0){
+        if(i*i==n) ans.pb(i);
+        else{ans.pb(i);ans.pb(n/i);}
+      }
+    }
+  }
