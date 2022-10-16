@@ -1,4 +1,4 @@
- vector<ll> alldiv(ll n){
+vector<ll> alldiv(ll n){
     vector<ll> ans;
     if(n<0) n*=-1;
     for(ll i=1;i*i<=n;++i){
@@ -7,4 +7,5 @@
         else{ans.pb(i);ans.pb(n/i);}
       }
     }
+    return ans;
   }
